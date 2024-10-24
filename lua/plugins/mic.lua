@@ -13,17 +13,9 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "stylua", -- Used to format Lua code
-        "python-lsp-server",
-        "ruff",
-        "sqlfluff",
-        "prettier",
-        "markdownlint-cli2",
-        "markdown-toc",
-        "jq",
-        "shellcheck",
-        "shfmt",
-        "bash-language-server",
+        "python-lsp-server", -- for additional python LSP
+        "shellcheck", -- for bash
+        "bash-language-server", --for bash
       },
     },
   },
