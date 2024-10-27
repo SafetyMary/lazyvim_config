@@ -1,7 +1,6 @@
 return {
 
   -- Add extras
-  { "LazyVim/LazyVim", import = "lazyvim.plugins" },
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
   { import = "lazyvim.plugins.extras.editor.telescope" },
   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
