@@ -1,3 +1,4 @@
+-- Add boarder to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -5,6 +6,16 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts.border = "rounded"
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+-- show source in lspconfig
+vim.diagnostic.config({
+  virtual_text = {
+    source = "if_many", -- Or "if_many"
+  },
+  float = {
+    source = "if_many", -- Or "if_many"
+  },
+})
 
 return {
 
@@ -125,6 +136,7 @@ return {
   },
 
   -- window borders (https://github.com/LazyVim/LazyVim/issues/2708)
+  -- For everything except lspconfig diagnostics
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
