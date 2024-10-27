@@ -48,6 +48,10 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
+        pyright = {
+          mason = false,
+          autostart = false,
+        },
         pylsp = {
           settings = {
             pylsp = {
