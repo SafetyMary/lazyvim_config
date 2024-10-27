@@ -27,10 +27,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("User", {
   callback = function()
     -- in case pylsp is not working as expected, try reinstalling through Mason
-    -- vim.cmd.PylspInstall { 'pyls-flake8' }
     -- vim.cmd.PylspInstall { 'pylsp-mypy' }
     -- vim.cmd.PylspInstall { 'pylsp-rope' }
     -- vim.cmd 'MasonToolsClean'  -- Depends on mason-tools-installer plugin
-    -- vim.cmd.TSInstall { 'regex' }
   end,
 })
