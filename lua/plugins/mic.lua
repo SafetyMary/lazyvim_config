@@ -17,6 +17,15 @@ vim.diagnostic.config({
   },
 })
 
+-- check screen size for layout
+local function layout_strategy()
+  -- cannot compare width against height, as they return char and row count
+  if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
+    return "horizontal"
+  else
+    return "vertical"
+  end
+end
 return {
 
   -- Add extras
@@ -50,6 +59,16 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "solarized",
+    },
+  },
+
+  -- telescope layout
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        layout_strategy = layout_strategy(),
+      },
     },
   },
 
