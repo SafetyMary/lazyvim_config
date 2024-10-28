@@ -41,30 +41,6 @@ return {
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.sql" },
 
-  -- Use solarized color scheme
-  {
-    "maxmx03/solarized.nvim",
-    lazy = false,
-    priority = 1000,
-    ---@type solarized.config
-    opts = {
-      variant = "spring",
-      palette = "selenized",
-    },
-    config = function(_, opts)
-      vim.o.termguicolors = true
-      vim.o.background = "dark"
-      require("solarized").setup(opts)
-      vim.cmd.colorscheme("solarized")
-    end,
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "solarized",
-    },
-  },
-
   -- telescope layout
   {
     "nvim-telescope/telescope.nvim",
