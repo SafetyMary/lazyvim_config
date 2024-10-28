@@ -1,3 +1,6 @@
+-- My preferred line length
+local line_length = 120
+
 -- Add boarder to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -95,17 +98,24 @@ return {
           mason = false,
           autostart = false,
         },
+        ruff = {
+          init_options = {
+            settings = {
+              lineLength = line_length,
+            },
+          },
+        },
         pylsp = {
           settings = {
             pylsp = {
               plugins = {
                 flake8 = {
                   enabled = true,
-                  maxLineLength = 120,
+                  maxLineLength = line_length,
                 },
                 pycodestyle = {
                   enabled = false, -- Included in flake8
-                  maxLineLength = 120,
+                  maxLineLength = line_length,
                 },
                 mccabe = {
                   enabled = false, -- Included in flake8
@@ -121,7 +131,7 @@ return {
                   enabled = true,
                   args = {
                     "--max-line-length",
-                    "120",
+                    tostring(line_length),
                   },
                 },
                 rope_autoimport = {
