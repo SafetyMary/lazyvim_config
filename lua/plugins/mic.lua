@@ -70,10 +70,7 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
-        pyright = {
-          mason = false,
-          autostart = false,
-        },
+        basedpyright = {},
         ruff = {
           init_options = {
             settings = {

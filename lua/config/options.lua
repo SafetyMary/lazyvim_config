@@ -15,3 +15,5 @@ vim.g.lazyvim_prettier_needs_config = false
 local opt = vim.opt
 
 opt.autowrite = false
+
+vim.g.lazyvim_python_lsp = "basedpyright"
