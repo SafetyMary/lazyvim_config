@@ -33,6 +33,9 @@ return {
 
   -- Add extras
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
+  -- { import = "lazyvim.plugins.extras.coding.codeium" },
+  -- { import = "lazyvim.plugins.extras.coding.copilot" },
+  -- { import = "lazyvim.plugins.extras.coding.copilot-chat" },
   { import = "lazyvim.plugins.extras.editor.telescope" },
   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
   { import = "lazyvim.plugins.extras.lang.python" },
