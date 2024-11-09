@@ -1,3 +1,5 @@
+local HOME = os.getenv("HOME")
+
 -- My preferred line length
 local line_length = 120
 
@@ -59,6 +61,18 @@ return {
         "python-lsp-server", -- for additional python LSP
         "shellcheck", -- for bash
         "bash-language-server", --for bash
+      },
+    },
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters = {
+        ["markdownlint-cli2"] = {
+          -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
+          args = { "--config", vim.fn.expand("~/.config/nvim/lua/plugins/.markdownlint-cli2.jsonc"), "--" },
+        },
       },
     },
   },
