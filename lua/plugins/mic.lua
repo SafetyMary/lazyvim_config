@@ -71,7 +71,22 @@ return {
       linters = {
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
-          args = { "--config", vim.fn.expand("~/.config/nvim/lua/plugins/.markdownlint-cli2.jsonc"), "--" },
+          args = {
+            "--config",
+            vim.fn.expand("~/.config/nvim/lua/plugins/.markdownlint-cli2.jsonc"),
+            "--",
+          },
+        },
+        sqlfluff = {
+          args = {
+            "lint",
+            "--format",
+            "json",
+            "--dialect",
+            "postgres",
+            "--config",
+            vim.fn.expand("~/.config/nvim/lua/plugins/sqlfluff.cfg"),
+          },
         },
       },
     },
