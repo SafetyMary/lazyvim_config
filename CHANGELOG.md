@@ -1,5 +1,11 @@
 # Version History
 
+- v1.1.0
+
+  - Config linters
+    - set max line length of markdownlint-cli-2 to 120
+    - set max line length of sqlfluff to 120
+
 - v1.0.0
 
   - Lazy extras
