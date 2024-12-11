@@ -238,7 +238,12 @@ return {
     opts = {
       lazygit = {
         config = {
-          gui = { portraitMode = layout().lazygit },
+          gui = {
+            portraitMode = layout().lazygit,
+          },
+          git = {
+            allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --oneline",
+          },
         },
       },
     },
