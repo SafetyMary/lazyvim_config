@@ -243,6 +243,9 @@ return {
           },
           git = {
             allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --oneline",
+            merging = {
+              args = "--no-ff",
+            },
           },
         },
       },
