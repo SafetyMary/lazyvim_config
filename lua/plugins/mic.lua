@@ -242,6 +242,7 @@ return {
             portraitMode = layout().lazygit,
           },
           git = {
+            branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --oneline {{branchName}} --",
             allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --oneline",
             merging = {
               args = "--no-ff",
