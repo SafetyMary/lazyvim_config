@@ -23,12 +23,12 @@ vim.diagnostic.config({
 })
 
 -- check screen size for layout
-local function layout_strategy()
+local function layout()
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
-    return "horizontal"
+    return { telescope = "horizontal", lazygit = "auto" }
   else
-    return "vertical"
+    return { telescope = "vertical", lazygit = "always" }
   end
 end
 return {
@@ -48,7 +48,7 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
-        layout_strategy = layout_strategy(),
+        layout_strategy = layout().telescope,
       },
     },
   },
@@ -230,5 +230,25 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = { inlay_hints = { enabled = false } },
+  },
+
+  -- lazygit config
+  {
+    "folke/snacks.nvim",
+    opts = {
+      lazygit = {
+        config = {
+          gui = {
+            portraitMode = layout().lazygit,
+          },
+          git = {
+            allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --oneline",
+            merging = {
+              args = "--no-ff",
+            },
+          },
+        },
+      },
+    },
   },
 }
