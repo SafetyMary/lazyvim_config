@@ -24,37 +24,36 @@ vim.diagnostic.config({
 
 -- check screen size for layout
 local function layout()
+  local layout_table = {
+    telescope = nil,
+    snacks = {
+      terminal = {
+        position = nil,
+      },
+      lazygit = {
+        portraitMode = nil,
+        mainPanelSplitMode = nil,
+        enlargedSideViewLocation = nil,
+      },
+    },
+  }
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
     -- horizontal
-    return {
-      telescope = "horizontal",
-      snacks = {
-        terminal = {
-          position = "right",
-        },
-        lazygit = {
-          portraitMode = "auto",
-          mainPanelSplitMode = "horizontal",
-          enlargedSideViewLocation = "left",
-        },
-      },
-    }
+    layout_table.telescope = "horizontal"
+    layout_table.snacks.terminal.position = "right"
+    layout_table.portraitMode = "auto"
+    layout_table.mainPanelSplitMode = "horizontal"
+    layout_table.enlargedSideViewLocation = "left"
+    return layout_table
   else
     -- vertical
-    return {
-      telescope = "vertical",
-      snacks = {
-        terminal = {
-          position = "right",
-        },
-        lazygit = {
-          portraitMode = "always",
-          mainPanelSplitMode = "vertical",
-          enlargedSideViewLocation = "top",
-        },
-      },
-    }
+    layout_table.telescope = "vertical"
+    layout_table.snacks.terminal.position = "bottom"
+    layout_table.lazygit.portraitMode = "always"
+    layout_table.lazygit.mainPanelSplitMode = "vertical"
+    layout_table.lazygit.enlargedSideViewLocation = "top"
+    return layout_table
   end
 end
 return {
