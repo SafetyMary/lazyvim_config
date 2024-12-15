@@ -29,20 +29,30 @@ local function layout()
     -- horizontal
     return {
       telescope = "horizontal",
-      lazygit = {
-        portraitMode = "auto",
-        mainPanelSplitMode = "horizontal",
-        enlargedSideViewLocation = "left",
+      snacks = {
+        terminal = {
+          position = "right",
+        },
+        lazygit = {
+          portraitMode = "auto",
+          mainPanelSplitMode = "horizontal",
+          enlargedSideViewLocation = "left",
+        },
       },
     }
   else
     -- vertical
     return {
       telescope = "vertical",
-      lazygit = {
-        portraitMode = "always",
-        mainPanelSplitMode = "vertical",
-        enlargedSideViewLocation = "top",
+      snacks = {
+        terminal = {
+          position = "right",
+        },
+        lazygit = {
+          portraitMode = "always",
+          mainPanelSplitMode = "vertical",
+          enlargedSideViewLocation = "top",
+        },
       },
     }
   end
@@ -252,12 +262,19 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      terminal = {
+        win = {
+          position = layout().snacks.terminal.position,
+          height = 0.5,
+          width = 0.5,
+        },
+      },
       lazygit = {
         config = {
           gui = {
-            portraitMode = layout().lazygit.portraitMode,
-            mainPanelSplitMode = layout().lazygit.mainPanelSplitMode,
-            enlargedSideViewLocation = layout().lazygit.enlargedSideViewLocation,
+            portraitMode = layout().snacks.lazygit.portraitMode,
+            mainPanelSplitMode = layout().snacks.lazygit.mainPanelSplitMode,
+            enlargedSideViewLocation = layout().snacks.lazygit.enlargedSideViewLocation,
           },
           git = {
             branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --oneline {{branchName}} --",
