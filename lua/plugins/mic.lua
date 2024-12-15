@@ -263,9 +263,9 @@ return {
     opts = {
       terminal = {
         win = {
-          position = layout().snacks.terminal.position,
-          height = 0.5,
-          width = 0.5,
+          -- position = layout().snacks.terminal.position,
+          -- height = 0.5,
+          -- width = 0.5,
         },
       },
       lazygit = {
