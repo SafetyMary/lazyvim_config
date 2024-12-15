@@ -268,12 +268,18 @@ return {
       },
       terminal = {
         win = {
-          -- position = layout().snacks.terminal.position,
-          -- height = 0.5,
-          -- width = 0.5,
+          position = layout().snacks.terminal.position,
+          height = 0.5,
+          width = 0.5,
         },
       },
       lazygit = {
+        win = {
+          -- Mimic default args since terminal win config overrided default
+          position = "float",
+          height = 0.9,
+          width = 0.9,
+        },
         config = {
           gui = {
             portraitMode = layout().snacks.lazygit.portraitMode,
