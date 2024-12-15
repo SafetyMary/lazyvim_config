@@ -26,9 +26,25 @@ vim.diagnostic.config({
 local function layout()
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
-    return { telescope = "horizontal", lazygit = "auto" }
+    -- horizontal
+    return {
+      telescope = "horizontal",
+      lazygit = {
+        portraitMode = "auto",
+        mainPanelSplitMode = "horizontal",
+        enlargedSideViewLocation = "left",
+      },
+    }
   else
-    return { telescope = "vertical", lazygit = "always" }
+    -- vertical
+    return {
+      telescope = "vertical",
+      lazygit = {
+        portraitMode = "always",
+        mainPanelSplitMode = "vertical",
+        enlargedSideViewLocation = "top",
+      },
+    }
   end
 end
 return {
@@ -239,9 +255,12 @@ return {
       lazygit = {
         config = {
           gui = {
-            portraitMode = layout().lazygit,
+            portraitMode = layout().lazygit.portraitMode,
+            mainPanelSplitMode = layout().lazygit.mainPanelSplitMode,
+            enlargedSideViewLocation = layout().lazygit.enlargedSideViewLocation,
           },
           git = {
+            branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --oneline {{branchName}} --",
             allBranchesLogCmd = "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --oneline",
             merging = {
               args = "--no-ff",
