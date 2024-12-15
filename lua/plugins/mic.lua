@@ -1,5 +1,3 @@
-local HOME = os.getenv("HOME")
-
 -- My preferred line length
 local line_length = 120
 
