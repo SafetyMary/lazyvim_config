@@ -261,6 +261,11 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      zen = {
+        win = {
+          width = line_length + 20, -- add 20 for some ui elements on the right
+        },
+      },
       terminal = {
         win = {
           -- position = layout().snacks.terminal.position,
