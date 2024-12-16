@@ -65,10 +65,11 @@ return {
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.sql" },
 
-  -- fzf_lua layout (https://github.com/LazyVim/LazyVim/discussions/3815)
+  -- fzf lua config
   {
     "ibhagwan/fzf-lua",
     opts = {
+      -- layout (https://github.com/LazyVim/LazyVim/discussions/3815)
       winopts = {
         preview = {
           vertical = "up:65%",
@@ -76,7 +77,14 @@ return {
           layout = layout().fzf_lua,
         },
       },
-    }
+      -- super tab for selection (https://github.com/LazyVim/LazyVim/discussions/3657)
+      keymap = {
+        fzf = {
+          ["tab"] = "down",
+          ["shift-tab"] = "up",
+        },
+      },
+    },
   },
 
   -- Install mason packs
