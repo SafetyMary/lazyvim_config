@@ -68,16 +68,15 @@ return {
   -- fzf_lua layout (https://github.com/LazyVim/LazyVim/discussions/3815)
   {
     "ibhagwan/fzf-lua",
-    opts = function(_, opts)
-      opts.winopts = {
+    opts = {
+      winopts = {
         preview = {
           vertical = "up:65%",
           horizontal = "right:60%",
           layout = layout().fzf_lua,
         },
-      }
-      -- opts.keymap.fzf = {}
-    end,
+      },
+    }
   },
 
   -- Install mason packs
