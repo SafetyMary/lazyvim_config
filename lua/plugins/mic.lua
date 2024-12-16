@@ -41,16 +41,16 @@ local function layout()
     layout_table.telescope = "horizontal"
     layout_table.snacks.terminal.position = "right"
     layout_table.portraitMode = "auto"
-    layout_table.mainPanelSplitMode = "horizontal"
-    layout_table.enlargedSideViewLocation = "left"
+    layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
+    layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
     return layout_table
   else
     -- vertical
     layout_table.telescope = "vertical"
     layout_table.snacks.terminal.position = "bottom"
-    layout_table.lazygit.portraitMode = "always"
-    layout_table.lazygit.mainPanelSplitMode = "vertical"
-    layout_table.lazygit.enlargedSideViewLocation = "top"
+    layout_table.snacks.lazygit.portraitMode = "always"
+    layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
+    layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
     return layout_table
   end
 end
