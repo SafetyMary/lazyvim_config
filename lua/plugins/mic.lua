@@ -23,7 +23,7 @@ vim.diagnostic.config({
 -- check screen size for layout
 local function layout()
   local layout_table = {
-    telescope = nil,
+    fzf_lua = nil,
     snacks = {
       terminal = {
         position = nil,
@@ -38,7 +38,7 @@ local function layout()
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
     -- horizontal
-    layout_table.telescope = "horizontal"
+    layout_table.fzf_lua = "horizontal"
     layout_table.snacks.terminal.position = "right"
     layout_table.portraitMode = "auto"
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
@@ -46,7 +46,7 @@ local function layout()
     return layout_table
   else
     -- vertical
-    layout_table.telescope = "vertical"
+    layout_table.fzf_lua = "vertical"
     layout_table.snacks.terminal.position = "bottom"
     layout_table.snacks.lazygit.portraitMode = "always"
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
@@ -58,7 +58,6 @@ return {
 
   -- Add extras
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
-  { import = "lazyvim.plugins.extras.editor.telescope" },
   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
   { import = "lazyvim.plugins.extras.lang.python" },
   { import = "lazyvim.plugins.extras.lang.markdown" },
@@ -66,14 +65,18 @@ return {
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.sql" },
 
-  -- telescope layout
+  -- fzf_lua layout
   {
-    "nvim-telescope/telescope.nvim",
-    opts = {
-      defaults = {
-        layout_strategy = layout().telescope,
-      },
-    },
+    "ibhagwan/fzf-lua",
+    opts = function(_, opts)
+      opts.winopts = {
+        preview = {
+          vertical = "up:65%",
+          horizontal = "right:60%",
+          layout = layout().fzf_lua,
+        },
+      }
+    end,
   },
 
   -- Install mason packs
