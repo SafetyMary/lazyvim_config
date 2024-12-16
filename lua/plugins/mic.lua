@@ -76,6 +76,7 @@ return {
           layout = layout().fzf_lua,
         },
       }
+      -- opts.keymap.fzf = {}
     end,
   },
 
@@ -179,6 +180,20 @@ return {
       },
     },
   },
+
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   opts = function(_, opts)
+  --     return {
+  --       keymap = {
+  --         fzf = {
+  --           ["tab"] = "down",
+  --           ["shift-tab"] = "up",
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
 
   -- Super Tab (https://www.lazyvim.org/configuration/recipes)
   {
