@@ -65,7 +65,7 @@ return {
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.sql" },
 
-  -- fzf_lua layout
+  -- fzf_lua layout (https://github.com/LazyVim/LazyVim/discussions/3815)
   {
     "ibhagwan/fzf-lua",
     opts = function(_, opts)
