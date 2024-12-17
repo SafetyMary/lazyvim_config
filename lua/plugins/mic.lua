@@ -90,6 +90,7 @@ return {
     },
   },
 
+  -- make linters read config files
   {
     "mfussenegger/nvim-lint",
     opts = {
@@ -175,6 +176,22 @@ return {
             },
           },
         },
+      },
+    },
+  },
+
+  -- remap some blink auto completion keys
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "enter",
+        ["<C-l>"] = { "snippet_forward", "fallback" },
+        ["<C-h>"] = { "snippet_backward", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-j>"] = { "scroll_documentation_down", "fallback" },
       },
     },
   },
