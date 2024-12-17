@@ -1,7 +1,7 @@
 -- My preferred line length
 local line_length = 120
 
--- Add boarder to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
+-- Add border to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
