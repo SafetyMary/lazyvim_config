@@ -1,9 +1,7 @@
-local HOME = os.getenv("HOME")
-
 -- My preferred line length
 local line_length = 120
 
--- Add boarder to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
+-- Add border to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
 -- To instead override globally
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
@@ -24,34 +22,42 @@ vim.diagnostic.config({
 
 -- check screen size for layout
 local function layout()
+  local layout_table = {
+    fzf_lua = nil,
+    snacks = {
+      terminal = {
+        position = nil,
+      },
+      lazygit = {
+        portraitMode = nil,
+        mainPanelSplitMode = nil,
+        enlargedSideViewLocation = nil,
+      },
+    },
+  }
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
     -- horizontal
-    return {
-      telescope = "horizontal",
-      lazygit = {
-        portraitMode = "auto",
-        mainPanelSplitMode = "horizontal",
-        enlargedSideViewLocation = "left",
-      },
-    }
+    layout_table.fzf_lua = "horizontal"
+    layout_table.snacks.terminal.position = "right"
+    layout_table.portraitMode = "auto"
+    layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
+    layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
+    return layout_table
   else
     -- vertical
-    return {
-      telescope = "vertical",
-      lazygit = {
-        portraitMode = "always",
-        mainPanelSplitMode = "vertical",
-        enlargedSideViewLocation = "top",
-      },
-    }
+    layout_table.fzf_lua = "vertical"
+    layout_table.snacks.terminal.position = "bottom"
+    layout_table.snacks.lazygit.portraitMode = "always"
+    layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
+    layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
+    return layout_table
   end
 end
 return {
 
   -- Add extras
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
-  { import = "lazyvim.plugins.extras.editor.telescope" },
   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
   { import = "lazyvim.plugins.extras.lang.python" },
   { import = "lazyvim.plugins.extras.lang.markdown" },
@@ -59,12 +65,24 @@ return {
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.sql" },
 
-  -- telescope layout
+  -- fzf lua config
   {
-    "nvim-telescope/telescope.nvim",
+    "ibhagwan/fzf-lua",
     opts = {
-      defaults = {
-        layout_strategy = layout().telescope,
+      -- layout (https://github.com/LazyVim/LazyVim/discussions/3815)
+      winopts = {
+        preview = {
+          vertical = "up:65%",
+          horizontal = "right:60%",
+          layout = layout().fzf_lua,
+        },
+      },
+      -- super tab for selection (https://github.com/LazyVim/LazyVim/discussions/3657)
+      keymap = {
+        fzf = {
+          ["tab"] = "down",
+          ["shift-tab"] = "up",
+        },
       },
     },
   },
@@ -170,6 +188,20 @@ return {
     },
   },
 
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   opts = function(_, opts)
+  --     return {
+  --       keymap = {
+  --         fzf = {
+  --           ["tab"] = "down",
+  --           ["shift-tab"] = "up",
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
+
   -- Super Tab (https://www.lazyvim.org/configuration/recipes)
   {
     "hrsh7th/nvim-cmp",
@@ -252,12 +284,30 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      zen = {
+        win = {
+          width = line_length + 20, -- add 20 for some ui elements on the right
+        },
+      },
+      terminal = {
+        win = {
+          position = layout().snacks.terminal.position,
+          height = 0.5,
+          width = 0.5,
+        },
+      },
       lazygit = {
+        win = {
+          -- Mimic default args since terminal win config overrided default
+          position = "float",
+          height = 0.9,
+          width = 0.9,
+        },
         config = {
           gui = {
-            portraitMode = layout().lazygit.portraitMode,
-            mainPanelSplitMode = layout().lazygit.mainPanelSplitMode,
-            enlargedSideViewLocation = layout().lazygit.enlargedSideViewLocation,
+            portraitMode = layout().snacks.lazygit.portraitMode,
+            mainPanelSplitMode = layout().snacks.lazygit.mainPanelSplitMode,
+            enlargedSideViewLocation = layout().snacks.lazygit.enlargedSideViewLocation,
           },
           git = {
             branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --oneline {{branchName}} --",
