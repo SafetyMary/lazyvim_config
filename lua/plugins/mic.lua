@@ -1,15 +1,6 @@
 -- My preferred line length
 local line_length = 120
 
--- Add border to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
--- To instead override globally
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = "rounded"
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 -- show source in lspconfig
 vim.diagnostic.config({
   virtual_text = {
@@ -184,25 +175,6 @@ return {
             },
           },
         },
-      },
-    },
-  },
-
-  -- Border settings for mason
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ui = {
-        border = "rounded",
-      },
-    },
-  },
-  -- Border settings for noice
-  {
-    "folke/noice.nvim",
-    opts = {
-      presets = {
-        lsp_doc_border = true,
       },
     },
   },
