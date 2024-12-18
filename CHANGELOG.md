@@ -1,5 +1,20 @@
 # Version History
 
+- v1.2.0
+
+  - Config lazygit
+    - No ff for merging
+    - Customize git log
+    - Dynamic vertical and horizontal layout
+
+  - Migrating to LazyVim v14
+    - Dynamic vertical and horizontal layout for new snacks terminal
+    - Dynamic vertical and horizontal layout for fzf (replaced telescope)
+    - Tab selection for fzf
+    - Config zen mode width
+    - Removed border configs
+    - Customize keybinds for blink auto completion
+
 - v1.1.0
 
   - Config linters
