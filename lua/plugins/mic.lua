@@ -1,15 +1,6 @@
 -- My preferred line length
 local line_length = 120
 
--- Add border to lspconfig diagnostics (https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization)
--- To instead override globally
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = "rounded"
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 -- show source in lspconfig
 vim.diagnostic.config({
   virtual_text = {
@@ -99,6 +90,7 @@ return {
     },
   },
 
+  -- make linters read config files
   {
     "mfussenegger/nvim-lint",
     opts = {
@@ -188,88 +180,18 @@ return {
     },
   },
 
-  -- {
-  --   "ibhagwan/fzf-lua",
-  --   opts = function(_, opts)
-  --     return {
-  --       keymap = {
-  --         fzf = {
-  --           ["tab"] = "down",
-  --           ["shift-tab"] = "up",
-  --         },
-  --       },
-  --     }
-  --   end,
-  -- },
-
-  -- Super Tab (https://www.lazyvim.org/configuration/recipes)
+  -- remap some blink auto completion keys
   {
-    "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-      end
-
-      local cmp = require("cmp")
-
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
-            cmp.select_next_item()
-          elseif vim.snippet.active({ direction = 1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif vim.snippet.active({ direction = -1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(-1)
-            end)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      })
-    end,
-  },
-
-  -- window borders (https://github.com/LazyVim/LazyVim/issues/2708)
-  -- For everything except lspconfig diagnostics
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      local cmp = require("cmp")
-      opts.window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      }
-    end,
-  },
-  {
-    "williamboman/mason.nvim",
+    "saghen/blink.cmp",
     opts = {
-      ui = {
-        border = "rounded",
-      },
-    },
-  },
-  {
-    "folke/noice.nvim",
-    opts = {
-      presets = {
-        lsp_doc_border = true,
+      keymap = {
+        preset = "enter",
+        ["<C-l>"] = { "snippet_forward", "fallback" },
+        ["<C-h>"] = { "snippet_backward", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-j>"] = { "scroll_documentation_down", "fallback" },
       },
     },
   },
