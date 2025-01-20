@@ -231,6 +231,7 @@ return {
             portraitMode = layout().snacks.lazygit.portraitMode,
             mainPanelSplitMode = layout().snacks.lazygit.mainPanelSplitMode,
             enlargedSideViewLocation = layout().snacks.lazygit.enlargedSideViewLocation,
+            switchTabsWithPanelJumpKeys = true,
           },
           git = {
             branchLogCmd = "git log --graph --color=always --abbrev-commit --decorate --date=relative --oneline {{branchName}} --",
