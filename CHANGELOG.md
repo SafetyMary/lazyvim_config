@@ -1,5 +1,16 @@
 # Version History
 
+- WIP
+
+  - markdown formatter/LSP not always working
+  - auto completion keymaps (prevent from intervering with enter and tab)
+
+- Next release
+
+  - Add nix language support (nixfmt formatter not support in Mason yet, need to local install)
+  - Re-enable lazygit panel jumping via numbers
+  - Add back borders in blink cmp
+
 - v1.2.0
 
   - Config lazygit
