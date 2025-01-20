@@ -194,6 +194,13 @@ return {
         ["<C-k>"] = { "scroll_documentation_up", "fallback" },
         ["<C-j>"] = { "scroll_documentation_down", "fallback" },
       },
+      -- Border recipe
+      -- https://github.com/Saghen/blink.cmp/blob/main/docs/recipes.md
+      completion = {
+        menu = { border = "rounded" },
+        documentation = { window = { border = "rounded" } },
+      },
+      signature = { window = { border = "rounded" } },
     },
   },
 
