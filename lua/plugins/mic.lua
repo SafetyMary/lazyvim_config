@@ -87,6 +87,7 @@ return {
         "python-lsp-server", -- for additional python LSP
         "shellcheck", -- for bash
         "bash-language-server", --for bash
+        "mypy",
       },
     },
   },
@@ -95,7 +96,11 @@ return {
   {
     "mfussenegger/nvim-lint",
     opts = {
+      linters_by_ft = {
+        python = { "mypy" },
+      },
       linters = {
+        mypy = {},
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
