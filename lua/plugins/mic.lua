@@ -88,6 +88,7 @@ return {
         "shellcheck", -- for bash
         "bash-language-server", --for bash
         "mypy",
+        "flake8",
       },
     },
   },
