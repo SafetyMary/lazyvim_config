@@ -97,10 +97,11 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        python = { "mypy" },
+        python = { "mypy", "flake8" },
       },
       linters = {
         mypy = {},
+        flake8 = {},
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
@@ -147,7 +148,7 @@ return {
             pylsp = {
               plugins = {
                 flake8 = {
-                  enabled = true,
+                  enabled = false,
                   maxLineLength = line_length,
                 },
                 pycodestyle = {
