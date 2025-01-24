@@ -102,7 +102,13 @@ return {
       },
       linters = {
         mypy = {},
-        flake8 = {},
+        flake8 = {
+          args={
+            "--config",
+            vim.fn.expand("~/.config/nvim/lua/plugins/.flake8"),
+            "--",
+          }
+        },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
