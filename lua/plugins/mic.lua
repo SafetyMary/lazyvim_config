@@ -101,12 +101,12 @@ return {
       linters = {
         mypy = {},
         flake8 = {
-          args = {
+          -- args = {
             -- "--config",
             -- "--append-config",
             -- vim.fn.expand("~/.config/nvim/lua/plugins/flake8"),
             -- "/home/safetymary/.config/nvim/lua/plugins/.flake8",
-          },
+          -- },
         },
         pylint = {},
         ["markdownlint-cli2"] = {
