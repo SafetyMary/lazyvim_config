@@ -98,18 +98,19 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        python = { "mypy", "flake8" },
+        python = { "mypy", "flake8", "pylint" },
       },
       linters = {
         mypy = {},
         flake8 = {
-          -- args = {
+          args = {
             -- "--config",
             -- "--append-config",
             -- vim.fn.expand("~/.config/nvim/lua/plugins/flake8"),
             -- "/home/safetymary/.config/nvim/lua/plugins/.flake8",
-          -- },
+          },
         },
+        pylint = {},
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
@@ -174,7 +175,7 @@ return {
                   convention = "google",
                 },
                 pylint = {
-                  enabled = true,
+                  enabled = false,
                   args = {
                     "--max-line-length",
                     tostring(line_length),
