@@ -102,10 +102,10 @@ return {
         mypy = {},
         flake8 = {
           -- args = {
-            -- "--config",
-            -- "--append-config",
-            -- vim.fn.expand("~/.config/nvim/lua/plugins/flake8"),
-            -- "/home/safetymary/.config/nvim/lua/plugins/.flake8",
+          -- "--config",
+          -- "--append-config",
+          -- vim.fn.expand("~/.config/nvim/lua/plugins/flake8"),
+          -- "/home/safetymary/.config/nvim/lua/plugins/.flake8",
           -- },
         },
         pylint = {},
@@ -146,6 +146,8 @@ return {
         ruff = {
           init_options = {
             settings = {
+              logLevel = "info",  -- to override lazyvim setting
+              -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
             },
           },
