@@ -142,6 +142,7 @@ return {
               lineLength = line_length,
               lint = {
                 select = { "ALL" },
+                preview = true,
               },
             },
           },
