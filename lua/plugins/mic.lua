@@ -151,8 +151,11 @@ return {
           settings = {
             pylsp = {
               plugins = {
+                autopep8 = {
+                  enabled = false, -- Included in ruff
+                },
                 flake8 = {
-                  enabled = false,
+                  enabled = false, -- Included in ruff
                   maxLineLength = line_length,
                 },
                 pycodestyle = {
@@ -166,11 +169,11 @@ return {
                   enabled = false, -- Included in flake8
                 },
                 pydocstyle = {
-                  enabled = false,
+                  enabled = false, -- Included in ruff
                   convention = "google",
                 },
                 pylint = {
-                  enabled = false,
+                  enabled = false, -- Included in ruff
                   args = {
                     "--max-line-length",
                     tostring(line_length),
@@ -182,6 +185,9 @@ return {
                 rope_completion = {
                   enabled = true,
                   eager = true,
+                },
+                yapf = {
+                  enabled = false,  -- Use ruff format instead
                 },
               },
             },
