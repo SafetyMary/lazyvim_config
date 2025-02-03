@@ -141,8 +141,13 @@ return {
               -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
               lint = {
-                select = { "ALL" },
                 preview = true,
+                select = {
+                  "ALL", -- enable all rules
+                },
+                ignore = {
+                  "CPY", -- ignore copyright rules
+                },
               },
             },
           },
@@ -187,7 +192,7 @@ return {
                   eager = true,
                 },
                 yapf = {
-                  enabled = false,  -- Use ruff format instead
+                  enabled = false, -- Use ruff format instead
                 },
               },
             },
