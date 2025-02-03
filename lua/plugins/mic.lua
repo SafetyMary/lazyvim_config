@@ -96,19 +96,10 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        python = { "mypy", "flake8", "pylint" },
+        python = { "mypy" },
       },
       linters = {
         mypy = {},
-        flake8 = {
-          -- args = {
-          -- "--config",
-          -- "--append-config",
-          -- vim.fn.expand("~/.config/nvim/lua/plugins/flake8"),
-          -- "/home/safetymary/.config/nvim/lua/plugins/.flake8",
-          -- },
-        },
-        pylint = {},
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
@@ -146,9 +137,12 @@ return {
         ruff = {
           init_options = {
             settings = {
-              logLevel = "info",  -- to override lazyvim setting
+              logLevel = "info", -- to override lazyvim setting
               -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
+              lint = {
+                select = { "ALL" },
+              },
             },
           },
         },
@@ -171,7 +165,7 @@ return {
                   enabled = false, -- Included in flake8
                 },
                 pydocstyle = {
-                  enabled = true,
+                  enabled = false,
                   convention = "google",
                 },
                 pylint = {
