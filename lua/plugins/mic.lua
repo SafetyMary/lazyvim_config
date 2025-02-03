@@ -87,6 +87,7 @@ return {
         "python-lsp-server", -- for additional python LSP
         "shellcheck", -- for bash
         "bash-language-server", --for bash
+        "mypy",
       },
     },
   },
