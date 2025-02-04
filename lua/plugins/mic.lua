@@ -100,7 +100,9 @@ return {
         python = { "mypy" },
       },
       linters = {
-        mypy = {},
+        mypy = {
+          "--strict"
+        },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
