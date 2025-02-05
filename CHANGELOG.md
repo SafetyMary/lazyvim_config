@@ -1,5 +1,9 @@
 # Version History
 
+- Known issues
+
+  - mypy only works if neovim is opened at the top level within a repo
+
 - WIP
 
   - markdown formatter/LSP not always working
