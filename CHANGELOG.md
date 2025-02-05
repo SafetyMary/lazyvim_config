@@ -5,8 +5,15 @@
   - markdown formatter/LSP not always working
   - auto completion keymaps (prevent from intervering with enter and tab)
 
-- Next release
+- v2.0.0
 
+  - Revamp LSP setup
+    - LSP (for navigation only)
+      - Use bare pylsp (disable all linters)
+    - Linting
+      - Use ruff to replace all linters (enable all rules with preview rules enabled)
+    - Static type checker
+      - Install mypy separately using strict mode
   - Add nix language support (nixfmt formatter not support in Mason yet, need to local install)
   - Re-enable lazygit panel jumping via numbers
   - Add back borders in blink cmp

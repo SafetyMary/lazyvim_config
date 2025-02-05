@@ -87,6 +87,7 @@ return {
         "python-lsp-server", -- for additional python LSP
         "shellcheck", -- for bash
         "bash-language-server", --for bash
+        "mypy",
       },
     },
   },
@@ -95,7 +96,13 @@ return {
   {
     "mfussenegger/nvim-lint",
     opts = {
+      linters_by_ft = {
+        python = { "mypy" },
+      },
       linters = {
+        mypy = {
+          "--strict"
+        },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
@@ -133,7 +140,20 @@ return {
         ruff = {
           init_options = {
             settings = {
+              logLevel = "info", -- to override lazyvim setting
+              -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
+              lint = {
+                preview = true,
+                select = {
+                  "ALL", -- enable all rules
+                },
+                ignore = {
+                  "CPY", -- ignore copyright rules
+                  "TD002", -- ignore todo author, clashes with editor todo detection
+                  "TD003", -- ignore todo linked issue
+                },
+              },
             },
           },
         },
@@ -141,8 +161,11 @@ return {
           settings = {
             pylsp = {
               plugins = {
+                autopep8 = {
+                  enabled = false, -- Included in ruff
+                },
                 flake8 = {
-                  enabled = true,
+                  enabled = false, -- Included in ruff
                   maxLineLength = line_length,
                 },
                 pycodestyle = {
@@ -156,11 +179,11 @@ return {
                   enabled = false, -- Included in flake8
                 },
                 pydocstyle = {
-                  enabled = true,
+                  enabled = false, -- Included in ruff
                   convention = "google",
                 },
                 pylint = {
-                  enabled = true,
+                  enabled = false, -- Included in ruff
                   args = {
                     "--max-line-length",
                     tostring(line_length),
@@ -172,6 +195,9 @@ return {
                 rope_completion = {
                   enabled = true,
                   eager = true,
+                },
+                yapf = {
+                  enabled = false, -- Use ruff format instead
                 },
               },
             },
