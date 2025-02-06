@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- wrap and check for spell in text filetypes
+-- wrap and check for spelling in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
   callback = function()
@@ -32,7 +32,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("User", {
   callback = function()
     -- in case pylsp is not working as expected, try reinstalling through Mason
-    -- vim.cmd.PylspInstall { 'pylsp-mypy' }
     -- vim.cmd.PylspInstall { 'pylsp-rope' }
     -- vim.cmd 'MasonToolsClean'  -- Depends on mason-tools-installer plugin
   end,

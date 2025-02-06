@@ -14,4 +14,4 @@ vim.g.lazyvim_prettier_needs_config = false
 
 local opt = vim.opt
 
-opt.autowrite = false
+opt.autowrite = false -- disable auto saving

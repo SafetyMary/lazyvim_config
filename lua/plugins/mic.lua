@@ -144,7 +144,7 @@ return {
               -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
               lint = {
-                preview = true,
+                preview = true, -- enable preview rules
                 select = {
                   "ALL", -- enable all rules
                 },
@@ -169,14 +169,14 @@ return {
                   maxLineLength = line_length,
                 },
                 pycodestyle = {
-                  enabled = false, -- Included in flake8
+                  enabled = false, -- Included in flake8 and ruff
                   maxLineLength = line_length,
                 },
                 mccabe = {
-                  enabled = false, -- Included in flake8
+                  enabled = false, -- Included in flake8 and ruff
                 },
                 pyflakes = {
-                  enabled = false, -- Included in flake8
+                  enabled = false, -- Included in flake8 and ruff
                 },
                 pydocstyle = {
                   enabled = false, -- Included in ruff
