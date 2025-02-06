@@ -25,6 +25,9 @@ local function layout()
         enlargedSideViewLocation = nil,
       },
     },
+    grug_far = {
+      windowCreationCommand = nil,
+    },
   }
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
@@ -34,6 +37,7 @@ local function layout()
     layout_table.portraitMode = "auto"
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
+    layout_table.grug_far.windowCreationCommand = "vsplit"
     return layout_table
   else
     -- vertical
@@ -42,6 +46,7 @@ local function layout()
     layout_table.snacks.lazygit.portraitMode = "always"
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
+    layout_table.grug_far.windowCreationCommand = "botright split"
     return layout_table
   end
 end
@@ -278,6 +283,15 @@ return {
           },
         },
       },
+    },
+  },
+
+  -- grug far config
+  {
+    "MagicDuck/grug-far.nvim",
+    opts = {
+
+      windowCreationCommand = layout().grug_far.windowCreationCommand,
     },
   },
 }
