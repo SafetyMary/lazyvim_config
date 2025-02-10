@@ -235,6 +235,21 @@ return {
     },
   },
 
+  -- Fixing markdown formater not working when there is no linting errors
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters = {
+        ["markdownlint-cli2"] = {
+          condition = function()
+            return true -- force markdown formater to be always on
+          end,
+        },
+      },
+    },
+  },
+
   -- Disable inlay hints
   {
     "neovim/nvim-lspconfig",
