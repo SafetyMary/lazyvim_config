@@ -11,8 +11,10 @@ vim.g.lazyvim_statuscolumn = {
 }
 
 vim.g.lazyvim_prettier_needs_config = false
-vim.g.snacks_animate = false
+
+-- have dedicated venv for hosting python with neovim package
+vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python3")
 
 local opt = vim.opt
 
-opt.autowrite = false
+opt.autowrite = false -- disable auto saving

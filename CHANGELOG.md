@@ -1,12 +1,21 @@
 # Version History
 
-- WIP
+- Known issues
+  - mypy only works if neovim is opened at the top level within a repo
 
-  - markdown formatter/LSP not always working
+- WIP
   - auto completion keymaps (prevent from intervering with enter and tab)
 
-- v2.0.0
+- v2.1.0
+  - Force markdown formatter to be always on even if there is no linter errors
+  - Use CTRL-HJKL to resize windows (CTRL-J only works after zellij version 0.41.2)
+    - <https://github.com/zellij-org/zellij/pull/3746>
+  - Disable dimming in zen mode
+  - Re-enable animate
+  - Dynamic layout for grag far (vertical and horizontal monitor)
+  - set python3 host prog, for dedicated venv for neovim
 
+- v2.0.0
   - Revamp LSP setup
     - LSP (for navigation only)
       - Use bare pylsp (disable all linters)
@@ -19,12 +28,10 @@
   - Add back borders in blink cmp
 
 - v1.2.0
-
   - Config lazygit
     - No ff for merging
     - Customize git log
     - Dynamic vertical and horizontal layout
-
   - Migrating to LazyVim v14
     - Dynamic vertical and horizontal layout for new snacks terminal
     - Dynamic vertical and horizontal layout for fzf (replaced telescope)
@@ -34,13 +41,11 @@
     - Customize keybinds for blink auto completion
 
 - v1.1.0
-
   - Config linters
     - set max line length of markdownlint-cli-2 to 120
     - set max line length of sqlfluff to 120
 
 - v1.0.0
-
   - Lazy extras
     - Language support
       - python
@@ -56,7 +61,6 @@
         - Use tab for auto completion
     - UI
       - treesitter context
-
   - LSP
     - Show server sources for LSP errors
     - Configure pylsp
@@ -64,7 +68,6 @@
       - Use flake8, pydocstyle (google), pylint, rope_completion
       - Add mypy and rope
     - Disable inlay hints
-
   - UI
     - Add boarder to all floating windows
       - lspconfig diagnostics
@@ -75,7 +78,6 @@
     - Dynamic layout strategy for telescope
     - Add color column at 120 char
     - Add fold signs
-
   - Editor
     - Disable autowrite
     - Add spell check for all file types
