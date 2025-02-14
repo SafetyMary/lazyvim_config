@@ -25,6 +25,9 @@ local function layout()
         enlargedSideViewLocation = nil,
       },
     },
+    grug_far = {
+      windowCreationCommand = nil,
+    },
   }
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
@@ -34,6 +37,7 @@ local function layout()
     layout_table.portraitMode = "auto"
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
+    layout_table.grug_far.windowCreationCommand = "vsplit"
     return layout_table
   else
     -- vertical
@@ -42,6 +46,7 @@ local function layout()
     layout_table.snacks.lazygit.portraitMode = "always"
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
+    layout_table.grug_far.windowCreationCommand = "botright split"
     return layout_table
   end
 end
@@ -101,7 +106,7 @@ return {
       },
       linters = {
         mypy = {
-          "--strict"
+          "--strict",
         },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
@@ -144,7 +149,7 @@ return {
               -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
               lint = {
-                preview = true,
+                preview = true, -- enable preview rules
                 select = {
                   "ALL", -- enable all rules
                 },
@@ -169,14 +174,14 @@ return {
                   maxLineLength = line_length,
                 },
                 pycodestyle = {
-                  enabled = false, -- Included in flake8
+                  enabled = false, -- Included in flake8 and ruff
                   maxLineLength = line_length,
                 },
                 mccabe = {
-                  enabled = false, -- Included in flake8
+                  enabled = false, -- Included in flake8 and ruff
                 },
                 pyflakes = {
-                  enabled = false, -- Included in flake8
+                  enabled = false, -- Included in flake8 and ruff
                 },
                 pydocstyle = {
                   enabled = false, -- Included in ruff
@@ -230,6 +235,21 @@ return {
     },
   },
 
+  -- Fixing markdown formater not working when there is no linting errors
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters = {
+        ["markdownlint-cli2"] = {
+          condition = function()
+            return true -- force markdown formater to be always on
+          end,
+        },
+      },
+    },
+  },
+
   -- Disable inlay hints
   {
     "neovim/nvim-lspconfig",
@@ -241,6 +261,9 @@ return {
     "folke/snacks.nvim",
     opts = {
       zen = {
+        toggles = {
+          dim = false,
+        },
         win = {
           width = line_length + 20, -- add 20 for some ui elements on the right
         },
@@ -275,6 +298,15 @@ return {
           },
         },
       },
+    },
+  },
+
+  -- grug far config
+  {
+    "MagicDuck/grug-far.nvim",
+    opts = {
+
+      windowCreationCommand = layout().grug_far.windowCreationCommand,
     },
   },
 }
