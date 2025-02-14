@@ -13,6 +13,7 @@
   - Disable dimming in zen mode
   - Re-enable animate
   - Dynamic layout for grag far (vertical and horizontal monitor)
+  - set python3 host prog, for dedicated venv for neovim
 
 - v2.0.0
   - Revamp LSP setup
