@@ -6,6 +6,9 @@
 - WIP
   - auto completion keymaps (prevent from intervering with enter and tab)
 
+- v2.1.1
+  - Ignore docstring return statement check
+
 - v2.1.0
   - Force markdown formatter to be always on even if there is no linter errors
   - Use CTRL-HJKL to resize windows (CTRL-J only works after zellij version 0.41.2)
