@@ -142,6 +142,7 @@ return {
           mason = false,
           autostart = false,
         },
+        basedpyright = {},
         ruff = {
           init_options = {
             settings = {

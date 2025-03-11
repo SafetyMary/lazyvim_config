@@ -21,3 +21,5 @@ vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python3")
 local opt = vim.opt
 
 opt.autowrite = false -- disable auto saving
+
+vim.g.lazyvim_python_lsp = "basedpyright"
