@@ -141,9 +141,19 @@ return {
           mason = false,
           autostart = false,
         },
+        -- Disables all dianostic messages
+        -- https://www.reddit.com/r/neovim/comments/11k5but/how_to_disable_pyright_diagnostics/
         basedpyright = {
+          -- handlers = {
+          -- ["textDocument/publishDiagnostics"] = function(...) end,
+          -- },
           settings = {
-            -- disableOrganizeImports = true,
+            basedpyright = {
+              disableOrganizeImports = false,  -- favour ruff for organize imports
+              analysis = {
+                typeCheckingMode = "off",
+              },
+            },
           },
         },
         ruff = {
