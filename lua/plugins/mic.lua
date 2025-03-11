@@ -89,7 +89,6 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "python-lsp-server", -- for additional python LSP
         "shellcheck", -- for bash
         "bash-language-server", --for bash
         "mypy",
@@ -142,7 +141,11 @@ return {
           mason = false,
           autostart = false,
         },
-        basedpyright = {},
+        basedpyright = {
+          settings = {
+            -- disableOrganizeImports = true,
+          },
+        },
         ruff = {
           init_options = {
             settings = {
@@ -159,52 +162,6 @@ return {
                   "TD002", -- ignore todo author, clashes with editor todo detection
                   "TD003", -- ignore todo linked issue
                   "DOC201", -- ignore docstring return statement check
-                },
-              },
-            },
-          },
-        },
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                autopep8 = {
-                  enabled = false, -- Included in ruff
-                },
-                flake8 = {
-                  enabled = false, -- Included in ruff
-                  maxLineLength = line_length,
-                },
-                pycodestyle = {
-                  enabled = false, -- Included in flake8 and ruff
-                  maxLineLength = line_length,
-                },
-                mccabe = {
-                  enabled = false, -- Included in flake8 and ruff
-                },
-                pyflakes = {
-                  enabled = false, -- Included in flake8 and ruff
-                },
-                pydocstyle = {
-                  enabled = false, -- Included in ruff
-                  convention = "google",
-                },
-                pylint = {
-                  enabled = false, -- Included in ruff
-                  args = {
-                    "--max-line-length",
-                    tostring(line_length),
-                  },
-                },
-                rope_autoimport = {
-                  enabled = false,
-                },
-                rope_completion = {
-                  enabled = true,
-                  eager = true,
-                },
-                yapf = {
-                  enabled = false, -- Use ruff format instead
                 },
               },
             },
