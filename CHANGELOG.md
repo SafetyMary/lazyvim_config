@@ -3,8 +3,12 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
-- WIP
-  - auto completion keymaps (prevent from intervering with enter and tab)
+- v2.2.0
+  - Replace pylsp with basedpyright
+    - More popular and support
+    - Better support for code symbols
+  - Remove nix language support
+  - Disable lazyvim check order
 
 - v2.1.1
   - Ignore docstring return statement check
