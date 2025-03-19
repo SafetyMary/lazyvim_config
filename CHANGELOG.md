@@ -3,7 +3,7 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
-- WIP
+- v2.2.0
   - Replace pylsp with basedpyright
     - More popular and support
     - Better support for code symbols
