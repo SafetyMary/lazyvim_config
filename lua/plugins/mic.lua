@@ -73,6 +73,8 @@ return {
           horizontal = "right:60%",
           layout = layout().fzf_lua,
         },
+        height = 0.9,
+        width = 0.9,
       },
       -- super tab for selection (https://github.com/LazyVim/LazyVim/discussions/3657)
       keymap = {
@@ -149,7 +151,7 @@ return {
           -- },
           settings = {
             basedpyright = {
-              disableOrganizeImports = false,  -- favour ruff for organize imports
+              disableOrganizeImports = false, -- favour ruff for organize imports
               analysis = {
                 typeCheckingMode = "off",
               },
