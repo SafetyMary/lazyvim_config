@@ -28,6 +28,15 @@ local function layout()
     grug_far = {
       windowCreationCommand = nil,
     },
+    trouble = {
+      modes = {
+        symbols = {
+          win = {
+            position = nil,
+          },
+        },
+      },
+    },
   }
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
@@ -38,6 +47,7 @@ local function layout()
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
     layout_table.grug_far.windowCreationCommand = "vsplit"
+    layout_table.trouble.modes.symbols.win.position = "right"
     return layout_table
   else
     -- vertical
@@ -47,6 +57,7 @@ local function layout()
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
     layout_table.grug_far.windowCreationCommand = "botright split"
+    layout_table.trouble.modes.symbols.win.position = "bottom"
     return layout_table
   end
 end
@@ -227,12 +238,27 @@ return {
     opts = { inlay_hints = { enabled = false } },
   },
 
-  -- lazygit config
+  -- trouble UI config
+  {
+    "folke/trouble.nvim",
+    opts = {
+      modes = {
+        symbols = {
+          win = {
+            position = layout().trouble.modes.symbols.win.position,
+          },
+        },
+      },
+    },
+  },
+
+  -- snacks UI config (include lazygit)
   {
     "folke/snacks.nvim",
     opts = {
       picker = {
         layout = {
+          -- layout for notification history
           preview = false,
           width = 0.9,
           height = 0.9,
