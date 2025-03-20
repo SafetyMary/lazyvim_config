@@ -231,6 +231,13 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      picker = {
+        layout = {
+          preview = false,
+          width = 0.9,
+          height = 0.9,
+        },
+      },
       zen = {
         toggles = {
           dim = false,
