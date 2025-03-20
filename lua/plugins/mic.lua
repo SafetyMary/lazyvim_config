@@ -243,7 +243,7 @@ return {
           dim = false,
         },
         win = {
-          width = line_length + 20, -- add 20 for some ui elements on the right
+          width = math.min(line_length + 20, vim.api.nvim_win_get_width(0)), -- add 20 for some ui elements on the right
         },
       },
       terminal = {
