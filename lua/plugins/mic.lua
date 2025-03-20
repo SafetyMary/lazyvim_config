@@ -73,8 +73,8 @@ return {
           horizontal = "right:60%",
           layout = layout().fzf_lua,
         },
-        height = 0.9,
-        width = 0.9,
+        -- height = 0.8,
+        -- width = 0.8,
       },
       -- super tab for selection (https://github.com/LazyVim/LazyVim/discussions/3657)
       keymap = {
