@@ -302,6 +302,21 @@ return {
           },
         },
       },
+      dashboard = {
+        sections = {
+          {
+            section = "terminal",
+            cmd = "chafa ~/.config/nvim/images/ashley_header.webp --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
+            height = 17,
+            padding = 1,
+          },
+          {
+            pane = 2,
+            { section = "keys", gap = 1, padding = 1 },
+            { section = "startup" },
+          },
+        },
+      },
     },
   },
 
