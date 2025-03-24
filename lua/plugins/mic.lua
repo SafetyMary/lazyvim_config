@@ -306,15 +306,13 @@ return {
         sections = {
           {
             section = "terminal",
-            cmd = "chafa ~/.config/nvim/images/ashley_header.webp --format symbols --symbols vhalf --size 60x17 --stretch; sleep .1",
-            height = 17,
+            cmd = "chafa ~/.config/nvim/images/ashley_header.webp --format symbols --symbols vhalf --size 60x30 --stretch; sleep .11",
+            height = 30,
             padding = 1,
           },
-          {
-            pane = 2,
-            { section = "keys", gap = 1, padding = 1 },
-            { section = "startup" },
-          },
+          { section = "header", pane = 1 },
+          { section = "keys", padding = 1 },
+          { section = "startup", padding = 1 },
         },
       },
     },
