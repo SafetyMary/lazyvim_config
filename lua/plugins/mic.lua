@@ -28,6 +28,15 @@ local function layout()
     grug_far = {
       windowCreationCommand = nil,
     },
+    trouble = {
+      modes = {
+        symbols = {
+          win = {
+            position = nil,
+          },
+        },
+      },
+    },
   }
   -- cannot compare width against height, as they return char and row count
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
@@ -38,6 +47,7 @@ local function layout()
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
     layout_table.grug_far.windowCreationCommand = "vsplit"
+    layout_table.trouble.modes.symbols.win.position = "right"
     return layout_table
   else
     -- vertical
@@ -47,6 +57,7 @@ local function layout()
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
     layout_table.grug_far.windowCreationCommand = "botright split"
+    layout_table.trouble.modes.symbols.win.position = "bottom"
     return layout_table
   end
 end
@@ -73,6 +84,8 @@ return {
           horizontal = "right:60%",
           layout = layout().fzf_lua,
         },
+        -- height = 0.8,
+        -- width = 0.8,
       },
       -- super tab for selection (https://github.com/LazyVim/LazyVim/discussions/3657)
       keymap = {
@@ -149,7 +162,7 @@ return {
           -- },
           settings = {
             basedpyright = {
-              disableOrganizeImports = false,  -- favour ruff for organize imports
+              disableOrganizeImports = false, -- favour ruff for organize imports
               analysis = {
                 typeCheckingMode = "off",
               },
@@ -225,16 +238,37 @@ return {
     opts = { inlay_hints = { enabled = false } },
   },
 
-  -- lazygit config
+  -- trouble UI config
+  {
+    "folke/trouble.nvim",
+    opts = {
+      modes = {
+        symbols = {
+          win = {
+            position = layout().trouble.modes.symbols.win.position,
+          },
+        },
+      },
+    },
+  },
+
+  -- snacks UI config (include lazygit)
   {
     "folke/snacks.nvim",
     opts = {
+      picker = {
+        layout = {
+          -- layout for notification history
+          preset = "default",
+          preview = false,
+        },
+      },
       zen = {
         toggles = {
           dim = false,
         },
         win = {
-          width = line_length + 20, -- add 20 for some ui elements on the right
+          width = math.min(line_length + 20, vim.api.nvim_win_get_width(0)), -- add 20 for some ui elements on the right
         },
       },
       terminal = {
@@ -265,6 +299,19 @@ return {
               args = "--no-ff",
             },
           },
+        },
+      },
+      dashboard = {
+        sections = {
+          {
+            section = "terminal",
+            cmd = "chafa ~/.config/nvim/images/ashley_header.webp --format symbols --symbols vhalf --size 60x30 --stretch; sleep .11",
+            height = 30,
+            padding = 1,
+          },
+          { section = "header", pane = 1 },
+          { section = "keys", padding = 1 },
+          { section = "startup", padding = 1 },
         },
       },
     },
