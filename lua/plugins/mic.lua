@@ -259,9 +259,8 @@ return {
       picker = {
         layout = {
           -- layout for notification history
+          preset = "default",
           preview = false,
-          width = 0.9,
-          height = 0.9,
         },
       },
       zen = {
