@@ -4,6 +4,7 @@
   - mypy only works if neovim is opened at the top level within a repo
 
 - WIP
+  - Update sqlfluff configs
   - Use 'default' preset for snacks picker (for better vertical notification hist)
   - Dynamic win position for trouble symbols
   - Add pic to startup dashboard
