@@ -3,6 +3,13 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
+- v2.3.0
+  - Update sqlfluff configs
+  - Use 'default' preset for snacks picker (for better vertical notification hist)
+  - Dynamic win position for trouble symbols
+  - Add pic to startup dashboard
+  - bugfix: min width for zen mode width
+
 - v2.2.0
   - Replace pylsp with basedpyright
     - More popular and support
