@@ -3,7 +3,7 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
-- WIP
+- v2.3.0
   - Update sqlfluff configs
   - Use 'default' preset for snacks picker (for better vertical notification hist)
   - Dynamic win position for trouble symbols
