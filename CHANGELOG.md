@@ -3,6 +3,11 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
+- WIP
+  - Stacked bufferline
+  - High resolution dashboard pic
+  - Ruff link python version
+
 - v2.3.0
   - Update sqlfluff configs
   - Use 'default' preset for snacks picker (for better vertical notification hist)
