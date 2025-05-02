@@ -7,6 +7,7 @@
   - Stacked bufferline
   - High resolution dashboard pic
   - Ruff link python version
+  - Add custom remap to paste from yank register
 
 - v2.3.0
   - Update sqlfluff configs
