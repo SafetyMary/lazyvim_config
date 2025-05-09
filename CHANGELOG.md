@@ -8,6 +8,7 @@
   - High resolution dashboard pic
   - Ruff link python version
   - Add custom remap to paste from yank register
+  - Linter allow use of assert statements
 
 - v2.3.0
   - Update sqlfluff configs
