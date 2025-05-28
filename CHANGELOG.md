@@ -9,6 +9,7 @@
   - Ruff link python version
   - Add custom remap to paste from yank register
   - Linter allow use of assert statements
+  - Add docker file lsp support
 
 - v2.3.0
   - Update sqlfluff configs
