@@ -3,7 +3,7 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
-- WIP
+- v2.4.0
   - Stacked bufferline
   - High resolution dashboard pic
   - Ruff link python version
