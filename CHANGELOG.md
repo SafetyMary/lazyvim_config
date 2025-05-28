@@ -3,6 +3,14 @@
 - Known issues
   - mypy only works if neovim is opened at the top level within a repo
 
+- v2.4.0
+  - Stacked bufferline
+  - High resolution dashboard pic
+  - Ruff link python version
+  - Add custom remap to paste from yank register
+  - Linter allow use of assert statements
+  - Add docker file lsp support
+
 - v2.3.0
   - Update sqlfluff configs
   - Use 'default' preset for snacks picker (for better vertical notification hist)

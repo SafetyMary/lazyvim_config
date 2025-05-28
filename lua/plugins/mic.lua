@@ -71,6 +71,7 @@ return {
   { import = "lazyvim.plugins.extras.lang.json" },
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.sql" },
+  { import = "lazyvim.plugins.extras.lang.docker" },
   -- { import = "lazyvim.plugins.extras.lang.nix" },
 
   -- fzf lua config
@@ -185,6 +186,7 @@ return {
                   "TD002", -- ignore todo author, clashes with editor todo detection
                   "TD003", -- ignore todo linked issue
                   "DOC201", -- ignore docstring return statement check
+                  "S101",  -- Allow use of assert
                 },
               },
             },
