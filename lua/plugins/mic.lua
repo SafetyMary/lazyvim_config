@@ -183,7 +183,6 @@ return {
                 },
                 ignore = {
                   "CPY", -- ignore copyright rules
-                  "TD002", -- ignore todo author, clashes with editor todo detection
                   "TD003", -- ignore todo linked issue
                   "DOC201", -- ignore docstring return statement check
                   "S101", -- Allow use of assert
