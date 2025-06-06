@@ -183,10 +183,9 @@ return {
                 },
                 ignore = {
                   "CPY", -- ignore copyright rules
-                  "TD002", -- ignore todo author, clashes with editor todo detection
                   "TD003", -- ignore todo linked issue
                   "DOC201", -- ignore docstring return statement check
-                  "S101",  -- Allow use of assert
+                  "S101", -- Allow use of assert
                 },
               },
             },
@@ -325,6 +324,21 @@ return {
     opts = {
 
       windowCreationCommand = layout().grug_far.windowCreationCommand,
+    },
+  },
+
+  -- todo comments allow author
+  -- https://github.com/folke/todo-comments.nvim/issues/10
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      search = {
+        pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]],
+      },
+      highlight = {
+        pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]],
+      },
     },
   },
 }
