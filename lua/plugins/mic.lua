@@ -120,6 +120,12 @@ return {
       linters = {
         mypy = {
           args = {
+            "--show-column-numbers",
+            "--show-error-end",
+            "--hide-error-context",
+            "--no-color-output",
+            "--no-error-summary",
+            "--no-pretty",
             "--strict",
             "--python-executable",
             function()
