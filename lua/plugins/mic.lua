@@ -111,6 +111,7 @@ return {
   },
 
   -- make linters read config files
+  --  NOTE: Current nvim-lint does not have append/prepend args feature, make sure to copy default args
   {
     "mfussenegger/nvim-lint",
     opts = {
@@ -119,7 +120,19 @@ return {
       },
       linters = {
         mypy = {
-          "--strict",
+          args = {
+            "--show-column-numbers",
+            "--show-error-end",
+            "--hide-error-context",
+            "--no-color-output",
+            "--no-error-summary",
+            "--no-pretty",
+            "--strict",
+            "--python-executable",
+            function()
+              return vim.fn.exepath("python3") or vim.fn.exepath("python")
+            end,
+          },
         },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
