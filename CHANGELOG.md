@@ -1,5 +1,8 @@
 # Version History
 
+- WIP
+  - Control lazy extras from :LazyExtra
+
 - v2.5.0
   - Solved mypy venv issue
   - Allow todo author in todo-comments
