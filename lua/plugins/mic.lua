@@ -119,7 +119,13 @@ return {
       },
       linters = {
         mypy = {
-          "--strict",
+          args = {
+            "--strict",
+            "--python-executable",
+            function()
+              return vim.fn.exepath("python3") or vim.fn.exepath("python")
+            end,
+          },
         },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
