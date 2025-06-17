@@ -1,7 +1,9 @@
 # Version History
 
-- Known issues
-  - mypy only works if neovim is opened at the top level within a repo
+- v2.5.0
+  - Solved mypy venv issue
+  - Allow todo author in todo-comments
+    - Enabled back TD002
 
 - v2.4.0
   - Stacked bufferline

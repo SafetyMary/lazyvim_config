@@ -111,6 +111,7 @@ return {
   },
 
   -- make linters read config files
+  --  NOTE: Current nvim-lint does not have append/prepend args feature, make sure to copy default args
   {
     "mfussenegger/nvim-lint",
     opts = {
@@ -119,7 +120,19 @@ return {
       },
       linters = {
         mypy = {
-          "--strict",
+          args = {
+            "--show-column-numbers",
+            "--show-error-end",
+            "--hide-error-context",
+            "--no-color-output",
+            "--no-error-summary",
+            "--no-pretty",
+            "--strict",
+            "--python-executable",
+            function()
+              return vim.fn.exepath("python3") or vim.fn.exepath("python")
+            end,
+          },
         },
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
@@ -183,10 +196,9 @@ return {
                 },
                 ignore = {
                   "CPY", -- ignore copyright rules
-                  "TD002", -- ignore todo author, clashes with editor todo detection
                   "TD003", -- ignore todo linked issue
                   "DOC201", -- ignore docstring return statement check
-                  "S101",  -- Allow use of assert
+                  "S101", -- Allow use of assert
                 },
               },
             },
@@ -325,6 +337,21 @@ return {
     opts = {
 
       windowCreationCommand = layout().grug_far.windowCreationCommand,
+    },
+  },
+
+  -- todo comments allow author
+  -- https://github.com/folke/todo-comments.nvim/issues/10
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      search = {
+        pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]],
+      },
+      highlight = {
+        pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]],
+      },
     },
   },
 }
