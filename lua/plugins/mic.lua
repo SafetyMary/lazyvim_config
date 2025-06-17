@@ -111,6 +111,7 @@ return {
   },
 
   -- make linters read config files
+  --  NOTE: Current nvim-lint does not have append/prepend args feature, make sure to copy default args
   {
     "mfussenegger/nvim-lint",
     opts = {
