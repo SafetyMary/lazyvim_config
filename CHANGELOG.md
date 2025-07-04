@@ -2,6 +2,8 @@
 
 - WIP
   - Control lazy extras from :LazyExtra
+  - Missing markdown file rename support from marksman LSP
+    - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
 - v2.5.0
   - Solved mypy venv issue
