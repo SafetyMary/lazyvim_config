@@ -4,6 +4,7 @@
   - Control lazy extras from :LazyExtra
   - Missing markdown file rename support from marksman LSP
     - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
+  - Spellcheck not working in WSL machine
 
 - v2.5.0
   - Solved mypy venv issue
