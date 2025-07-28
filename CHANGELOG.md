@@ -2,6 +2,12 @@
 
 - WIP
   - Control lazy extras from :LazyExtra
+  - Missing markdown file rename support from marksman LSP
+    - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
+  - Spellcheck not working in WSL machine
+  - Allow same headding in markdown if
+    - Headings are at different nesting levels or
+    - Does not share the same parent
 
 - v2.5.0
   - Solved mypy venv issue
