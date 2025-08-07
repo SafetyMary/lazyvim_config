@@ -5,9 +5,10 @@
   - Missing markdown file rename support from marksman LSP
     - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
   - Spellcheck not working in WSL machine
-  - Allow same headding in markdown if
+  - Allow same heading in markdown if
     - Headings are at different nesting levels or
     - Does not share the same parent
+  - Remove custom window layout for code symbols
 
 - v2.5.0
   - Solved mypy venv issue
