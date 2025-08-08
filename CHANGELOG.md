@@ -9,6 +9,7 @@
     - Headings are at different nesting levels or
     - Does not share the same parent
   - Remove custom window layout for code symbols
+  - Markdown preview disable auto close
 
 - v2.5.0
   - Solved mypy venv issue
