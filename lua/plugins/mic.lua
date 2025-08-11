@@ -59,6 +59,11 @@ local function layout()
     return layout_table
   end
 end
+
+-- markdown preview config
+vim.g.mkdp_auto_start = 0  -- Bug: opening last two windows instead of current window only
+vim.g.mkdp_auto_close = 0
+
 return {
 
   -- fzf lua config
