@@ -47,7 +47,6 @@ local function layout()
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "left"
     layout_table.grug_far.windowCreationCommand = "vsplit"
-    layout_table.trouble.modes.symbols.win.position = "right"
     return layout_table
   else
     -- vertical
@@ -57,22 +56,15 @@ local function layout()
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
     layout_table.snacks.lazygit.enlargedSideViewLocation = "top"
     layout_table.grug_far.windowCreationCommand = "botright split"
-    layout_table.trouble.modes.symbols.win.position = "bottom"
     return layout_table
   end
 end
-return {
 
-  -- Add extras
-  { import = "lazyvim.plugins.extras.coding.mini-surround" },
-  { import = "lazyvim.plugins.extras.ui.treesitter-context" },
-  { import = "lazyvim.plugins.extras.lang.python" },
-  { import = "lazyvim.plugins.extras.lang.markdown" },
-  { import = "lazyvim.plugins.extras.lang.json" },
-  { import = "lazyvim.plugins.extras.lang.toml" },
-  { import = "lazyvim.plugins.extras.lang.sql" },
-  { import = "lazyvim.plugins.extras.lang.docker" },
-  -- { import = "lazyvim.plugins.extras.lang.nix" },
+-- markdown preview config
+vim.g.mkdp_auto_start = 0  -- Bug: opening last two windows instead of current window only
+vim.g.mkdp_auto_close = 0
+
+return {
 
   -- fzf lua config
   {
@@ -250,20 +242,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = { inlay_hints = { enabled = false } },
-  },
-
-  -- trouble UI config
-  {
-    "folke/trouble.nvim",
-    opts = {
-      modes = {
-        symbols = {
-          win = {
-            position = layout().trouble.modes.symbols.win.position,
-          },
-        },
-      },
-    },
   },
 
   -- snacks UI config (include lazygit)
