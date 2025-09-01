@@ -61,7 +61,7 @@ local function layout()
 end
 
 -- markdown preview config
-vim.g.mkdp_auto_start = 0  -- Bug: opening last two windows instead of current window only
+vim.g.mkdp_auto_start = 0 -- Bug: opening last two windows instead of current window only
 vim.g.mkdp_auto_close = 0
 
 return {
@@ -331,5 +331,12 @@ return {
         pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]],
       },
     },
+  },
+
+  -- Set color scheme
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = { style = "night" },
   },
 }
