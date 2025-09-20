@@ -179,7 +179,7 @@ return {
           init_options = {
             settings = {
               logLevel = "info", -- to override lazyvim setting
-              -- configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
+              configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
               lint = {
                 preview = true, -- enable preview rules
