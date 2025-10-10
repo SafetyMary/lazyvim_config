@@ -2,6 +2,10 @@
 
 ## WIP
 
+- Add C and cMake lsp support
+- Change color scheme to catppuccin due to changes in treesitter
+- Ruff set alow-star-arg-any
+- Update LazyVim to 15.x
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
