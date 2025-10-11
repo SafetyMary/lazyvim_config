@@ -11,3 +11,6 @@ map("n", "<C-k>", "<cmd>resize +2<cr>", { desc = "Increase Window Height", remap
 map("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height", remap = true })
 map("n", "<C-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width", remap = true })
 map("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width", remap = true })
+
+-- <leader>p to paste from last yank
+map({ "n", "v" }, "<leader>p", '"0p', { desc = "Paste from yank register", remap = true })
