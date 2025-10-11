@@ -15,6 +15,11 @@ vim.diagnostic.config({
 local function layout()
   local layout_table = {
     fzf_lua = nil,
+    picker = {
+      layout = {
+        preset = nil,
+      },
+    },
     snacks = {
       terminal = {
         position = nil,
@@ -42,6 +47,7 @@ local function layout()
   if (vim.api.nvim_win_get_width(0) / 2) >= 100 then -- 0 means current window
     -- horizontal
     layout_table.fzf_lua = "horizontal"
+    layout_table.picker.layout.preset = "default"
     layout_table.snacks.terminal.position = "right"
     layout_table.portraitMode = "auto"
     layout_table.snacks.lazygit.mainPanelSplitMode = "horizontal"
@@ -51,6 +57,7 @@ local function layout()
   else
     -- vertical
     layout_table.fzf_lua = "vertical"
+    layout_table.picker.layout.preset = "vertical"
     layout_table.snacks.terminal.position = "bottom"
     layout_table.snacks.lazygit.portraitMode = "always"
     layout_table.snacks.lazygit.mainPanelSplitMode = "vertical"
@@ -250,9 +257,22 @@ return {
     opts = {
       picker = {
         layout = {
-          -- layout for notification history
-          preset = "default",
-          preview = false,
+          preset = layout().picker.layout.preset,
+          -- Force any preset to use 0.8
+          layout = {
+            width = 0.9,
+            height = 0.9,
+          },
+        },
+        sources = {
+          explorer = {
+            layout = {
+              -- Force width 40 (original default setting) since default is override by picker layout config
+              layout = {
+                width = 40,
+              },
+            },
+          },
         },
       },
       zen = {
@@ -272,7 +292,7 @@ return {
       },
       lazygit = {
         win = {
-          -- Mimic default args since terminal win config overrided default
+          -- Mimic default args since terminal win config override default
           position = "float",
           height = 0.9,
           width = 0.9,
