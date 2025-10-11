@@ -26,13 +26,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
-
--- Manually triggered setup commands
--- TODO: Set up custom function for this
-vim.api.nvim_create_autocmd("User", {
-  callback = function()
-    -- in case pylsp is not working as expected, try reinstalling through Mason
-    -- vim.cmd.PylspInstall { 'pylsp-rope' }
-    -- vim.cmd 'MasonToolsClean'  -- Depends on mason-tools-installer plugin
-  end,
-})
