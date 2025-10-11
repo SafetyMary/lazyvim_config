@@ -4,6 +4,7 @@
 
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
+- Disable text warp
 
 ## v2.7.0
 
