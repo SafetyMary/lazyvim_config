@@ -280,7 +280,8 @@ return {
           dim = false,
         },
         win = {
-          width = math.min(line_length + 20, vim.api.nvim_win_get_width(0)), -- add 20 for some ui elements on the right
+          -- just slightly more than line_length, add 20 for some ui elements on the right
+          width = math.min(line_length + 20, vim.api.nvim_win_get_width(0)),
         },
       },
       terminal = {
@@ -292,7 +293,7 @@ return {
       },
       lazygit = {
         win = {
-          -- Mimic default args since terminal win config override default
+          -- Mimic default args since terminal win config override this default
           position = "float",
           height = 0.9,
           width = 0.9,
