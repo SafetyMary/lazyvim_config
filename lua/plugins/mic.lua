@@ -261,7 +261,7 @@ return {
           -- Force any preset to use 0.8
           layout = {
             width = 0.9,
-            height = 0.9,
+            -- NOTE: Setting height here will break some dropdown menus, e.g. C-f in Mason
           },
         },
         sources = {
