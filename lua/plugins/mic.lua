@@ -264,6 +264,21 @@ return {
             -- NOTE: Setting height here will break some dropdown menus, e.g. C-f in Mason
           },
         },
+        -- Make tab key navigate instead of select multiple
+        win = {
+          input = {
+            keys = {
+              ["<Tab>"] = { "list_down", mode = { "i", "n" } },
+              ["<S-Tab>"] = { "list_up", mode = { "i", "n" } },
+            },
+          },
+          list = {
+            keys = {
+              ["<Tab>"] = "list_down",
+              ["<S-Tab>"] = "list_up",
+            },
+          },
+        },
         sources = {
           explorer = {
             layout = {
