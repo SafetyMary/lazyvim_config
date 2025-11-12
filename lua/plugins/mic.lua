@@ -198,6 +198,7 @@ return {
                   "TD003", -- ignore todo linked issue
                   "DOC201", -- ignore docstring return statement check
                   "S101", -- Allow use of assert
+                  "PLR0913", -- Allow more than 5 args in a function
                 },
               },
             },
