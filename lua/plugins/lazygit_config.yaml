@@ -1,0 +1,11 @@
+gui:
+  portraitMode: "default"
+  mainPanelSplitMode: "default"
+  enlargedSideViewLocation: "default"
+  switchTabsWithPanelJumpKeys: true
+git:
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --oneline {{branchName}} --"
+  merging:
+    args: "--no-ff"
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --oneline
