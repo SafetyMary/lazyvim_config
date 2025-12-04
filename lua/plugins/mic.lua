@@ -126,7 +126,8 @@ return {
             "--no-color-output",
             "--no-error-summary",
             "--no-pretty",
-            "--strict",
+            "--config-file",
+            vim.fn.expand("~/.config/nvim/lua/plugins/mypy_confg.ini"),
             "--python-executable",
             function()
               return vim.fn.exepath("python3") or vim.fn.exepath("python")
