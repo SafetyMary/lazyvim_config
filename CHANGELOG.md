@@ -1,9 +1,16 @@
 # Version History
 
-## WIP
+## Known issues
 
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
+
+## WIP
+
+- feat(mypy): Migrate to config file and add all optional error codes
+- feat(ruff): Add ignored rules, allow more args and public methods
+- fix(snacks.picker): Make tab navigate instead of select multiple
+- feat(LazyVim): Upgrade to lazyvim v15.13.0
 - Disable text warp
 - Use snacks picker and explorer
 
