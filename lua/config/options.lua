@@ -12,5 +12,5 @@ local opt = vim.opt
 
 opt.autowrite = false -- disable auto saving
 
--- use basedpyright instead of pyright
-vim.g.lazyvim_python_lsp = "basedpyright"
+-- use ty instead of pyright
+vim.g.lazyvim_python_lsp = "ty"
