@@ -5,7 +5,7 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
-## WIP
+## v2.8.0
 
 - feat(mypy): Migrate to config file and add all optional error codes
 - feat(ruff): Add ignored rules, allow more args and public methods
