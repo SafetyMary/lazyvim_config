@@ -5,6 +5,10 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
+## WIP
+
+- feat(lazygit): Add lazygit config file (Unable to override config path in neovim config)
+
 ## v2.8.0
 
 - feat(mypy): Migrate to config file and add all optional error codes

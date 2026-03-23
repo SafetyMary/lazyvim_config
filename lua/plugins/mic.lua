@@ -309,6 +309,7 @@ return {
           width = 0.5,
         },
       },
+      -- NOTE: need to append "-ucd ~/.config/nvim/lua/plugins/lazygit_config/" to override config path
       lazygit = {
         win = {
           -- Mimic default args since terminal win config override this default
