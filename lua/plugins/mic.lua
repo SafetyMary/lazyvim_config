@@ -374,8 +374,15 @@ return {
 
   -- Set color scheme
   {
-    "folke/tokyonight.nvim",
-    lazy = true,
-    opts = { style = "night" },
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "solarized-osaka",
+    },
   },
 }

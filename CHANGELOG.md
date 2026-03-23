@@ -11,8 +11,9 @@
 - feat(ruff): Add ignored rules, allow more args and public methods
 - fix(snacks.picker): Make tab navigate instead of select multiple
 - feat(LazyVim): Upgrade to lazyvim v15.13.0
-- Disable text warp
-- Use snacks picker and explorer
+- feat(color): Switch to solarized osaka color scheme
+- feat(text wrap): Disable text warp
+- feat(file list): Use snacks picker and explorer
 
 ## v2.7.0
 
