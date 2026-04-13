@@ -189,20 +189,6 @@ return {
               logLevel = "info", -- to override lazyvim setting
               configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
               lineLength = line_length,
-              lint = {
-                preview = true, -- enable preview rules
-                select = {
-                  "ALL", -- enable all rules
-                },
-                ignore = {
-                  "CPY", -- ignore copyright rules
-                  "TD003", -- ignore todo linked issue
-                  "DOC201", -- ignore docstring return statement check
-                  "S101", -- Allow use of assert
-                  "PLR0913", -- Allow more than 5 args in a function
-                  "PLR0904", -- Allow more than 20 public methods in a class
-                },
-              },
             },
           },
         },
