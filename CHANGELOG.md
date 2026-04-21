@@ -8,6 +8,8 @@
 ## WIP
 
 - feat(lazygit): Add lazygit config file (Unable to override config path in neovim config)
+- feat(nix): Add nix language extras
+- fix(lazyvim): Upgrade to LazyVim v15.15.0, pinning nvim-treesitter to fix multiple startup issues
 
 ## v2.8.0
 
