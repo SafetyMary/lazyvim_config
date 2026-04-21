@@ -105,6 +105,7 @@ return {
         "shellcheck", -- for bash
         "bash-language-server", --for bash
         "mypy",
+        "nixfmt",
       },
     },
   },
@@ -116,6 +117,7 @@ return {
     opts = {
       linters_by_ft = {
         python = { "mypy" },
+        nix = { "statix" },
       },
       linters = {
         mypy = {
@@ -230,6 +232,9 @@ return {
             return true -- force markdown formater to be always on
           end,
         },
+      },
+      formatters_by_ft = {
+        nix = { "nixfmt" },
       },
     },
   },
