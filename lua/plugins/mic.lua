@@ -370,7 +370,28 @@ return {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
+    opts = {
+      -- Overrides colors for diff, favour background over font color, may cause issues if vim.opts.transparent=True
+      -- https://github.com/craftzdog/solarized-osaka.nvim/pull/81
+      on_highlights = function(highlights, colors)
+        highlights.DiffAdd = {
+          bg = colors.base04,
+          bold = true,
+        }
+        highlights.DiffChange = {
+          bg = colors.base04,
+          bold = true,
+        }
+        highlights.DiffDelete = {
+          bg = colors.base04,
+          bold = true,
+        }
+        highlights.DiffText = {
+          bg = colors.base02,
+          bold = true,
+        }
+      end,
+    },
   },
   {
     "LazyVim/LazyVim",
