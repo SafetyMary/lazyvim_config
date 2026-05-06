@@ -8,6 +8,7 @@
 ## WIP
 
 - feat(statix): Install statix from Mason
+- feat(solarize): Override colors on matching parentheses
 
 ## v2.9.1
 

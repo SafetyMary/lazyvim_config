@@ -371,9 +371,9 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      -- Overrides colors for diff, favour background over font color, may cause issues if vim.opts.transparent=True
-      -- https://github.com/craftzdog/solarized-osaka.nvim/pull/81
       on_highlights = function(highlights, colors)
+        -- Overrides colors for diff, favour background over font color, may cause issues if vim.opts.transparent=True
+        -- https://github.com/craftzdog/solarized-osaka.nvim/pull/81
         highlights.DiffAdd = {
           bg = colors.base04,
           bold = true,
@@ -388,6 +388,11 @@ return {
         }
         highlights.DiffText = {
           bg = colors.base02,
+          bold = true,
+        }
+        -- Overrides colors for matching parentheses
+        highlights.MatchParen = {
+          fg = colors.red100,
           bold = true,
         }
       end,
