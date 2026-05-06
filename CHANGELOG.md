@@ -5,6 +5,10 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
+## WIP
+
+- feat(statix): Install statix from Mason
+
 ## v2.9.1
 
 - build(nvim): neovim 0.12.1 (from 0.11.x)

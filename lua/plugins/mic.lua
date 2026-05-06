@@ -106,6 +106,7 @@ return {
         "bash-language-server", --for bash
         "mypy",
         "nixfmt",
+        "statix",
       },
     },
   },
