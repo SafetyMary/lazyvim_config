@@ -137,12 +137,13 @@ return {
             end,
           },
         },
+        -- https://github.com/mfussenegger/nvim-lint/blob/eab58b48eb11d7745c11c505e0f3057165902461/lua/lint/linters/markdownlint-cli2.lua
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
             "--config",
             vim.fn.expand("~/.config/nvim/lua/plugins/.markdownlint-cli2.jsonc"),
-            "--",
+            "-",
           },
         },
         -- https://github.com/mfussenegger/nvim-lint/blob/eab58b48eb11d7745c11c505e0f3057165902461/lua/lint/linters/sqlfluff.lua

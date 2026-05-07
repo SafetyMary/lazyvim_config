@@ -10,6 +10,7 @@
 - feat(statix): Install statix from Mason
 - feat(solarize): Override colors on matching parentheses
 - fix(sqlfluff): Critical fix where sqlfluff would return linting errors for the entire repo for each file opened
+- fix(sqlfluff): Critical fix where markdownlint-cli2 does not return errors
 
 ## v2.9.1
 
