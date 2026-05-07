@@ -121,6 +121,7 @@ return {
         nix = { "statix" },
       },
       linters = {
+        -- https://github.com/mfussenegger/nvim-lint/blob/eab58b48eb11d7745c11c505e0f3057165902461/lua/lint/linters/mypy.lua
         mypy = {
           args = {
             "--show-column-numbers",
@@ -150,10 +151,7 @@ return {
         sqlfluff = {
           args = {
             "lint",
-            "--format",
-            "json",
-            "--dialect",
-            "postgres",
+            "--format=json",
             "--config",
             vim.fn.expand("~/.config/nvim/lua/plugins/sqlfluff.cfg"),
             "-",
