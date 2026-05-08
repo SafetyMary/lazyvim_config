@@ -372,28 +372,31 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
+      transparent = false,
       on_highlights = function(highlights, colors)
-        -- Overrides colors for diff, favour background over font color, may cause issues if vim.opts.transparent=True
+        -- Overrides colors for diff, favour difftext highlights over font color
         -- https://github.com/craftzdog/solarized-osaka.nvim/pull/81
         highlights.DiffAdd = {
-          bg = colors.base04,
+          bg = colors.base03,
           bold = true,
         }
         highlights.DiffChange = {
-          bg = colors.base04,
+          bg = colors.base03,
           bold = true,
         }
         highlights.DiffDelete = {
-          bg = colors.base04,
+          bg = colors.base03,
           bold = true,
         }
         highlights.DiffText = {
-          bg = colors.base02,
+          bg = colors.orange900,  -- opposite to background color on color wheel
           bold = true,
         }
         -- Overrides colors for matching parentheses
         highlights.MatchParen = {
           fg = colors.red100,
+          -- perpendicular to background/cursor(red500 by wezterm) color on color wheel (yelow500 also)
+          bg = colors.violet500,
           bold = true,
         }
       end,

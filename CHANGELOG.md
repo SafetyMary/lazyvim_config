@@ -12,6 +12,8 @@
 - fix(sqlfluff): Critical fix where sqlfluff would return linting errors for the entire repo for each file opened
 - fix(markdownlint-cli2): Critical fix where markdownlint-cli2 does not return errors
 - refactor(sqlfluff): Move dialect back into config file
+- fix(color): make "transparent = false" so terminal color does not affect background,
+  also adjust diff mode colors accordingly
 
 ## v2.9.1
 
