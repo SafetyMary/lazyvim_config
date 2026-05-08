@@ -121,6 +121,7 @@ return {
         nix = { "statix" },
       },
       linters = {
+        -- https://github.com/mfussenegger/nvim-lint/blob/eab58b48eb11d7745c11c505e0f3057165902461/lua/lint/linters/mypy.lua
         mypy = {
           args = {
             "--show-column-numbers",
@@ -137,23 +138,23 @@ return {
             end,
           },
         },
+        -- https://github.com/mfussenegger/nvim-lint/blob/eab58b48eb11d7745c11c505e0f3057165902461/lua/lint/linters/markdownlint-cli2.lua
         ["markdownlint-cli2"] = {
           -- NOTE: do not change file name or extension, make sure to test valid file names in CLI
           args = {
             "--config",
             vim.fn.expand("~/.config/nvim/lua/plugins/.markdownlint-cli2.jsonc"),
-            "--",
+            "-",
           },
         },
+        -- https://github.com/mfussenegger/nvim-lint/blob/eab58b48eb11d7745c11c505e0f3057165902461/lua/lint/linters/sqlfluff.lua
         sqlfluff = {
           args = {
             "lint",
-            "--format",
-            "json",
-            "--dialect",
-            "postgres",
+            "--format=json",
             "--config",
             vim.fn.expand("~/.config/nvim/lua/plugins/sqlfluff.cfg"),
+            "-",
           },
         },
       },
@@ -371,28 +372,31 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
+      transparent = false,
       on_highlights = function(highlights, colors)
-        -- Overrides colors for diff, favour background over font color, may cause issues if vim.opts.transparent=True
+        -- Overrides colors for diff, favour difftext highlights over font color
         -- https://github.com/craftzdog/solarized-osaka.nvim/pull/81
         highlights.DiffAdd = {
-          bg = colors.base04,
+          bg = colors.base03,
           bold = true,
         }
         highlights.DiffChange = {
-          bg = colors.base04,
+          bg = colors.base03,
           bold = true,
         }
         highlights.DiffDelete = {
-          bg = colors.base04,
+          bg = colors.base03,
           bold = true,
         }
         highlights.DiffText = {
-          bg = colors.base02,
+          bg = colors.orange900,  -- opposite to background color on color wheel
           bold = true,
         }
         -- Overrides colors for matching parentheses
         highlights.MatchParen = {
           fg = colors.red100,
+          -- perpendicular to background/cursor(red500 by wezterm) color on color wheel (yelow500 also)
+          bg = colors.violet500,
           bold = true,
         }
       end,
