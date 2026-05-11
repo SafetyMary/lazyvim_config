@@ -374,24 +374,6 @@ return {
     opts = {
       transparent = false,
       on_highlights = function(highlights, colors)
-        -- Overrides colors for diff, favour difftext highlights over font color
-        -- https://github.com/craftzdog/solarized-osaka.nvim/pull/81
-        highlights.DiffAdd = {
-          bg = colors.base03,
-          bold = true,
-        }
-        highlights.DiffChange = {
-          bg = colors.base03,
-          bold = true,
-        }
-        highlights.DiffDelete = {
-          bg = colors.base03,
-          bold = true,
-        }
-        highlights.DiffText = {
-          bg = colors.orange900,  -- opposite to background color on color wheel
-          bold = true,
-        }
         -- Overrides colors for matching parentheses
         highlights.MatchParen = {
           fg = colors.red100,

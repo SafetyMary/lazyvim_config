@@ -5,6 +5,10 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
+## v2.9.3
+
+- fix(solarize): Update to solarized osaka commit SHA f675d9a, fixed diff visibility issues, remove overrides
+
 ## v2.9.2
 
 - feat(statix): Install statix from Mason
