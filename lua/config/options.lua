@@ -2,6 +2,9 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- Set fish shell as default
+vim.o.shell = "fish"
+
 -- Do no auto format on save
 vim.g.autoformat = false
 
