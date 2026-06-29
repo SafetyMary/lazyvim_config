@@ -5,6 +5,11 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
+## WIP
+
+- feat(extras): add yaml language extras
+- feat(extras): add git language extras
+
 ## v2.9.5
 
 - feat(nvim): Upgrade to LazyVim v16.0.0
