@@ -5,6 +5,10 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
+## WIP
+
+- feat(nvim): Upgrade to LazyVim v16.0.0
+
 ## v2.9.4
 
 - feat(shell): set default terminal shell to fish
