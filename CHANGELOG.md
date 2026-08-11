@@ -9,6 +9,7 @@
 
 - feat(extras): add yaml language extras
 - feat(extras): add git language extras
+- feat(nvim): Sync all LazyVim plugins
 
 ## v2.9.5
 
