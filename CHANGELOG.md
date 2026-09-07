@@ -5,6 +5,10 @@
 - Missing markdown file rename support from marksman LSP
   - [Github issue](https://github.com/artempyanykh/marksman/issues/153)
 
+## WIP
+
+- docs(ruff): Additional comments on ruff line length
+
 ## v2.9.6
 
 - feat(extras): add yaml language extras

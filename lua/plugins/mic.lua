@@ -192,7 +192,7 @@ return {
             settings = {
               logLevel = "info", -- to override lazyvim setting
               configuration = vim.fn.expand("~/.config/nvim/lua/plugins/ruff.toml"),
-              lineLength = line_length,
+              lineLength = line_length,  -- separate line length setting from ruff.toml for shared variable
             },
           },
         },
